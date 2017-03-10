@@ -205,11 +205,21 @@
 		替换子字符串str_replace、substr_replace
 	*/
 
-	$str = "hello world";
-	echo str_replace('world', 'kitty', $str);//将字符串中的world换成kitty   输出：hello kitty
-	echo '<br/>';
-	echo substr_replace($str, 'cat', 6,2);//从字符串的第6个位置开始，后面的两个字符换成cat   输出：hello catrld
+//	$str = "hello world";
+//	echo str_replace('world', 'kitty', $str);//将字符串中的world换成kitty   输出：hello kitty
+//	echo '<br/>';
+//	echo substr_replace($str, 'cat', 6,2);//从字符串的第6个位置开始，后面的两个字符换成cat   输出：hello catrld
 
-
-
+	/*
+	 * 递归函数
+	 * */
+	function reverse_r($str){
+		if(strlen($str)>0){
+			reverse_r(substr($str,1));
+			//echo $str.'<br/>';
+		}
+		echo substr($str,0,1);
+		return;
+	}
+	reverse_r('hello');
 ?>
