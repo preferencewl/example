@@ -15,9 +15,10 @@ if(!$fp){
 }
 while(!feof($fp)){
     $file_contents = fgetc($fp);//从文件指针处读取一个字符
-    if (!feof($fp)){
-        echo ($file_contents == "\n" ? "<br />" : $file_contents);
-    }
+//    if (!feof($fp)){
+//        echo ($file_contents == "\n" ? "<br />" : $file_contents);
+//    }
+    echo $file_contents;
 
 }
 fclose($fp);
