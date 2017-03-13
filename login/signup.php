@@ -1,43 +1,52 @@
-<?php
-/*检测是否有submit操作*/
-if(!isset($_POST['sub'])){
-	exit('执行错误!');
-}
-if(isset($_POST['uname'])){
-	$uname = $_POST['uname'];//post获取表单里的uname
-}
-if(isset($_POST['pwd'])){
-	$pwd = $_POST['pwd'];//post获取表单里的pwd
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Signup</title>
+	<link type="text/css" rel="stylesheet" href="css/signup.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<!--内容开始-->
+	<div class="content">
+		<div class="loginForm">
+			<form class="form" action="signupprocess.php" method="post" onsubmit="return vali()">
+				<p class="username"><label>username:</label><span class="msg_uname"></span><input type="text" name="uname" id="uname" placeholder="username"></p>
+				<p class="pwd"><label>password:</label><span class="msg_pwd"></span><input type="password" name="pwd" id="pwd" placeholder="password"></p>
+				<p class="sign-up"><input class="sub" type="submit" name="sub" value="Sign up"><input class="check" type="checkbox" name="check" >记住我</p>
+			</form>
+		</div>
+	</div>
+	<!--内容结束-->
+	<!--底部开始-->
+	<div class="footer">
 
-if(strlen($uname) < 4 || strlen($uname) > 15){
-	echo "<script>alert('用户名在4到15个字符之间');</script>";
-	exit();
-}
-
-
-include('connect.php');//连接数据库
-
-$sql2 = "SELECT username FROM user WHERE username ='$uname'";//是否有相同的用户名
-
-$result2 = mysqli_query($con,$sql2);//执行sql语句
-
-$row = mysqli_num_rows($result2);//返回结果集的行数
-if($row){//如果行数大于0
-    echo "<script>alert('用户名已存在');setTimeout(\"window.location.href='signup.html'\",1000);</script>";
-    exit;
-}
-$sql = "INSERT INTO user(username,password) VALUES ('$uname','$pwd')";//向数据库插入表单传来的值
-$result = mysqli_query($con,$sql);//执行sql语句
-if(!$result){
-	exit('Error:'.mysqli_error($con));//如果sql执行失败，输出错误
-}else{
-	echo "<script type='text/javascript'>alert('注册成功');
-            
-           // window.location.href = 'login.html';
-            setTimeout(\"window.location.href='login.html'\",2000);
-            
-        </script>";
-
-}
-mysqli_close($con);//关闭数据库
+	</div>
+	<!--底部结束-->
+</body>
+</html>
+<script type="text/javascript" language="javascript">
+	function vali(){
+		var uname = document.getElementById('uname');
+		var pwd = document.getElementById('pwd');
+		if(uname.value == '' && pwd.value == ''){
+			alert('用户名密码不能为空');
+			uname.focus();
+			return false;
+		}else if(uname.value == ''){
+			alert('用户名不能为空');
+			uname.focus();
+			return false;
+		}else if (pwd.value == ''){
+			alert('密码不能为空');
+			pwd.focus();
+			return false;
+		}
+		if(uname.value.length < 4 || uname.value.length > 15){
+			alert('用户名在4到15个字符之间');
+			uname.focus();
+			return false;
+		}
+	}
+</script>
