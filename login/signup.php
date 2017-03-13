@@ -11,7 +11,7 @@ if(isset($_POST['pwd'])){
 }
 
 if(strlen($uname) < 4 || strlen($uname) > 15){
-	echo "<javascript>alert('用户名在4到15个字符之间');</javascript>";
+	echo "<script>alert('用户名在4到15个字符之间');</script>";
 	exit();
 }
 
@@ -24,7 +24,12 @@ $result = mysqli_query($con,$sql);//执行sql语句
 if(!$result){
 	exit('Error:'.mysqli_error($con));//如果sql执行失败，输出错误
 }else{
-	echo '注册成功!';
+	echo "<script type='text/javascript'>alert('注册成功');
+            
+           // window.location.href = 'login.html';
+            setTimeout(\"window.location.href='login.html'\",2000);
+            
+        </script>";
+
 }
 mysqli_close($con);//关闭数据库
-?>

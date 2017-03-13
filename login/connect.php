@@ -10,4 +10,3 @@
 	}
 
 	mysqli_select_db($con,'test');//选择数据库
-?>
