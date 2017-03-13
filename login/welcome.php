@@ -4,6 +4,6 @@
     <title>welcome</title>
 </head>
 <body>
-    <p>欢迎登陆<?php echo $_COOKIE['uname'];setcookie('uanme','',time()-60*60);?></p>
+    <p>欢迎登陆<?php echo $_COOKIE['uname'];?><a href="quit.php">退出</a></p>
 </body>
 </html>

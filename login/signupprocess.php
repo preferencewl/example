@@ -24,7 +24,9 @@ $result2 = mysqli_query($con,$sql2);//执行sql语句
 
 $row = mysqli_num_rows($result2);//返回结果集的行数
 if($row){//如果行数大于0
-    echo "<script>alert('用户名已存在');setTimeout(window.location.href='signup.php',1000);</scrip>";
+    echo "<script>alert('用户名已存在');setTimeout(function() {
+    window.location.href='signup.php'
+},1000);</scrip>";
 }
 $sql = "INSERT INTO user(username,password) VALUES ('$uname','$pwd')";//向数据库插入表单传来的值
 $result = mysqli_query($con,$sql);//执行sql语句
@@ -32,10 +34,9 @@ if(!$result){
 	exit('Error:'.mysqli_error($con));//如果sql执行失败，输出错误
 }else{
 	echo "<script type='text/javascript'>alert('注册成功');
-            
-           // window.location.href = 'login.php';
-            setTimeout(window.location.href='login.php',2000);
-            
+            setTimeout(function(){
+                window.location.href='login.php'
+            },2000);
         </script>";
 
 }
