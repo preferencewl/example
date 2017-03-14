@@ -14,7 +14,7 @@
 			<form class="form" action="signupprocess.php" method="post" onsubmit="return vali()">
 				<p class="username"><label>username:</label><span class="msg_uname"></span><input type="text" name="uname" id="uname" placeholder="username"></p>
 				<p class="pwd"><label>password:</label><span class="msg_pwd"></span><input type="password" name="pwd" id="pwd" placeholder="password"></p>
-				<p class="sign-up"><input class="sub" type="submit" name="sub" value="Sign up"><input class="check" type="checkbox" name="check" >记住我</p>
+				<p class="sign-up"><input class="sub" type="submit" name="sub" value="Sign up"></p>
 			</form>
 		</div>
 	</div>
