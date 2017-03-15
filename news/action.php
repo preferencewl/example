@@ -23,8 +23,10 @@ switch ($_GET['action']){
         $id = mysqli_insert_id($con);
         if($id){
             echo '添加成功';
+            header("refresh:1;url=index.php");
         }else{
             echo '添加失败';
+            header("refresh:1;url=add.php");
         }
         break;
     case 'del':
@@ -43,6 +45,7 @@ switch ($_GET['action']){
         $result = mysqli_query($con,$sql);
         if(!$result){
             echo '更新失败';
+            header("refresh:1;url=edit.php");
         }else{
             echo '更新成功';
             header('refresh:1;url=index.php');

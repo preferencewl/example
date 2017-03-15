@@ -32,11 +32,11 @@
         $result = mysqli_query($con,$sql);
         //遍历输出
         while($row = mysqli_fetch_assoc($result)){
-            echo '<tr>';
+            echo '<tr align="center">';
             echo '<td>'.$row['id'].'</td>';
             echo '<td>'.$row['title'].'</td>';
             echo '<td>'.$row['author'].'</td>';
-            echo '<td>'.$row['addtime'].'</td>';
+            echo '<td>'.date('Y-m-d',$row['addtime']).'</td>';
             echo '<td><a href="javascript:dodel('.$row['id'].')">删除</a>|<a href="edit.php?id='.$row['id'].'">修改</a></td>';
             echo '</tr>';
         }
