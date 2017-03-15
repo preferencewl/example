@@ -1,7 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 2017/3/14
- * Time: 16:02
- */
+//数据库配置文件
+define("HOST","localhost");
+define("USER","root");
+define("PWD","");
+define("DBNAME","test");
