@@ -35,18 +35,11 @@
             exit();
         }else{
             echo "<script>alert('用户名或密码错误')</script>";
-            echo "
-                    <script>setTimeout(function() {
-                    window.location.href = 'login.php';
-                    },1000)</script>
-                ";
+            echo "<script>setTimeout(function() {window.location.href = 'login.php';},1000)</script>";
         }
     }else{//如果用户名或密码为空
         echo "<script>alert('用户名或密码不能为空');</script>";
         echo "
-                <script>setTimeout(function() {
-                    window.location.href = 'login.php';
-                },1000)</script>
-            ";
+                <script>setTimeout(function() {window.location.href = 'login.php';},1000)</script>";
     }
     mysqli_close($con);

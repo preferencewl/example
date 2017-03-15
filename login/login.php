@@ -1,13 +1,9 @@
 <?php
 header("content-Type:text/html;charset=Utf-8");
 if(isset($_COOKIE['uname']) && $_COOKIE['uname'] != ''){
-	echo "<script>setTimeout(function(){
-    window.location.href = 'welcome.php'
-},5000);</script>";
+	echo "<script>setTimeout(function(){window.location.href = 'welcome.php'},5000);</script>";
 }else {
-
-
-	?>
+?>
 	<!DOCTYPE html>
 	<html>
 	<head>
